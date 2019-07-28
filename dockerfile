@@ -131,11 +131,11 @@ RUN curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > mic
 RUN apt-get install -y apt-transport-https && apt-get update -y && apt-get install -y code && rm -rf /var/lib/apt/lists/*
 
 # Set Background Image - In a round about way
-RUN cd /usr/share/backgrounds/xfce && rm -f *.jpg && wget -q www.google.com\test.png xfce-teal.jpg
+#RUN cd /usr/share/backgrounds/xfce && rm -f *.jpg && wget -q www.google.com\test.png xfce-teal.jpg
 
 # WorkDIR Set - seems to make VNC behave better //TODO FIX
 ENV HOME /home/root
-WORKDIR home
+WORKDIR /home
 
 # Preconfigure Xfce // TODO - Remove JUNK
 COPY [ "./src/home/Desktop", "root/Desktop/" ]
@@ -148,7 +148,7 @@ COPY [ "./src/home/config/xfce4/xfconf/xfce-perchannel-xml", "root/.config/xfce4
 # EXPOSE Ports
 EXPOSE 6901 5901
 
-# Copy / Run Startup Scripts
-COPY [ "./src/startup.sh", "/startup.sh" ]
-ENTRYPOINT ["/./startup.sh"]
-CMD [ "--wait" ]
+#Copy / Run Startup Scripts
+COPY [ "./src/startup.sh", "/home/startup.sh" ]
+#ENTRYPOINT ["/home/startup.sh"]
+#CMD [ "--wait" ]
