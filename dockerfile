@@ -1,5 +1,5 @@
 # docker build . -t sectoolstester
-# docker run -it -p 6901:6901 -p 5901:5901 sectoolstester:latest 
+# docker run -it -p 6901:6901 sectoolstester:latest 
 
 FROM ubuntu:latest
 LABEL maintainer="github.com\LeeBerg"
@@ -150,5 +150,5 @@ EXPOSE 6901 5901
 
 #Copy / Run Startup Scripts
 COPY [ "./src/startup.sh", "/home/startup.sh" ]
-#ENTRYPOINT ["/home/startup.sh"]
+ENTRYPOINT ["/home/startup.sh"]
 #CMD [ "--wait" ]
