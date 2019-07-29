@@ -26,6 +26,7 @@ Here are a few more examples of items/use cases included in this particular cont
 1. Build and Run the Container
     ``` bash
     git clone https://github.com/leeberg/BlueWhale.git
+    cd BlueWhale
     docker build . -t sectoolstester
     docker run -it -p 6901:6901 sectoolstester:latest 
     ```
